@@ -14,10 +14,12 @@ public class InsertionSort {
 		
 		for(int i=1;i<SORT_LENGTH;i++) {
 			int key = insertionSort[i];
-			for(int j=i;j>=0;j--) {
+			for(int j=i-1;j>=0;j--) {
 				if(key<insertionSort[j]) {
 					insertionSort[j+1]=insertionSort[j];
 					insertionSort[j] = key;
+				}else{
+					break;
 				}
 			}
 		}
