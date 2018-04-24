@@ -1,13 +1,15 @@
 package hyunhee_project;
 
 import java.util.Arrays;
+import java.util.Random;
 
 public class QuickSort {
+	
 	public static void main(String[] args) {
-		int[] intArr = {10,9,5,8,2,7,3,6,4,1,0,0,0};
+		int[] intArr = {0,0,0,0,10,9,5,8,2,7,3,6,4,1,0,0,0,0};
 
 		System.out.println(Arrays.toString(quickSort(intArr,0,intArr.length-1)));
-		
+
 	}
 	
 	public static int[] quickSort(int[] intArr,int start,int end) {
@@ -26,11 +28,11 @@ public class QuickSort {
 	
 
 		while(true) {	
-			while(intArr[left]<=pivot&&left<=right) {
+			while(intArr[left]<pivot&&left<=right) {
 				left = left+1;			
 			}
 			
-			while(intArr[right]>=pivot&&left<right) {
+			while(intArr[right]>pivot&&left<right) {
 				right = right-1;
 			}
 
@@ -41,7 +43,9 @@ public class QuickSort {
 			int temp = intArr[left];
 			intArr[left] = intArr[right];
 			intArr[right] = temp;
-		
+			
+			left = left+1;
+			right = right-1;
 		
 		}	
 		
