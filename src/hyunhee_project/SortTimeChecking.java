@@ -8,6 +8,7 @@ public class SortTimeChecking {
 	static InsertionSort insert = new InsertionSort();
 	static SelectionSort select = new SelectionSort();
 	static QuickSort quick = new QuickSort();
+	static MergeSort merge = new MergeSort();
 	
 	public static void main(String[] args) {
 		Random random = new Random();
@@ -30,6 +31,7 @@ public class SortTimeChecking {
 		int[] test2 =Arrays.copyOf(intArr, intLength);
 		int[] test3 =Arrays.copyOf(intArr, intLength);
 		int[] test4 =Arrays.copyOf(intArr, intLength);
+		int[] test5 =Arrays.copyOf(intArr, intLength);
 		
 		start = System.currentTimeMillis();
 		select.selectionSort(test3);
@@ -38,7 +40,7 @@ public class SortTimeChecking {
 
 		
 		start = System.currentTimeMillis();
-		quick.quickSort(test1,0,test1.length-1);
+		quick.quickSort(test1,0,intLength-1);
 		end = System.currentTimeMillis();
 		System.out.println( "quickSort 실행 시간 : " + (end-start)/1000.0);
 	
@@ -52,8 +54,13 @@ public class SortTimeChecking {
 		bubble.bubbleSort(test4);
 		end = System.currentTimeMillis();
 		System.out.println( "bubbleSort 실행 시간 : " + (end-start)/1000.0);
+		
+		start = System.currentTimeMillis();
+		merge.mergeSort(test5,0,intLength-1);
+		end = System.currentTimeMillis();
+		System.out.println( "mergeSort 실행 시간 : " + (end-start)/1000.0);
 
-		System.out.println(Arrays.equals(test1, test2)&&Arrays.equals(test3, test4));
+		System.out.println(Arrays.equals(test1, test2)&&Arrays.equals(test3, test4)&&Arrays.equals(test4, test5));
 
 	}
 }
