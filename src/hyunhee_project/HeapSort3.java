@@ -7,6 +7,7 @@ public class HeapSort3 {
 	//	int[] intArr = {9,10,5,8,2,7,3,6,4,1,2,1,2,1};
 	 //	int[] intArr = {0,1,0,2,5,0,9,5,7,8,5};
 		int[] intArr = {5,4,3,2,6,3,1,3,5,5,5,1};
+		//	initHeap(intArr);
 	//	initHeap(intArr);
 		heapsort(intArr);
 		System.out.println(Arrays.toString(intArr));

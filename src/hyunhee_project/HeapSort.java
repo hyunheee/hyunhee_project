@@ -4,10 +4,10 @@ import java.util.Arrays;
 
 public class HeapSort {
 	public static void main(String[] args) {
-		//int[] intArr = {9,10,5,8,2,7,3,6,4,1,0};
-		int[] intArr = {0,1,0,2,5,0,9,5,7,8,5};
-		initHeap(intArr);
-		//heapsort(intArr);
+		int[] intArr = {9,10,5,8,2,7,3,6,4,1,2,1,2,1};
+	//	int[] intArr = {0,1,0,2,5,0,9,5,7,8,5};
+	//	initHeap(intArr);
+		heapsort(intArr);
 		System.out.println(Arrays.toString(intArr));
 	}
 	
@@ -15,41 +15,55 @@ public class HeapSort {
 		int max;
 		initHeap(arr);
 		
-	//	max = arr[0];
-		
-		for(int i=arr.length-1;i>0;i--) {
+		System.out.println("initHeap:"+Arrays.toString(arr));
+
+		for(int i=arr.length-1; i > 0 ;i--) {
 			max = arr[0];
 			arr[0] = arr[i];
 			arr[i] = max;
-			System.out.println(arr[i]+"?"+i);
-			System.out.println(Arrays.toString(arr));
-			heapify(arr,0,i);
+			
+			heapify(arr,i);
 		}
 	}
 	
-	private static void heapify(int[] arr,int i,int j) {
+	private static void heapify(int[] arr, int size) {
+		int parentIndex = 0;
 		
-		int temp;
-		int parent = i;
-		int child;
-		int childLeft = getChild(parent,true);
-		int childRight = getChild(parent,false);
-		
-		child = arr[childLeft]>arr[childRight]?childLeft:childRight;
-		//System.out.println(arr[childLeft]+"?"+arr[childRight]+"bbb"+child);
-		System.out.println(j+"값은???");
-		while(arr[parent]<arr[child]&&child<j) {
-			System.out.println(parent+"?anjdi?"+child);
-			// swap
-			temp = arr[parent];
-			arr[parent] = arr[child];
-			arr[child] = temp;
-		//	System.out.println(arr[parent]+"!!!"+arr[child]);
-			parent = child;
+		while (parentIndex < size) {
+			int childLeftIndex = (parentIndex * 2) + 1;
+			int childRightIndex = (parentIndex * 2) + 2;
+			int childIndex = 0;
+			boolean isChildSelected = false;
 			
-			heapify(arr,parent,j);
+			if (childLeftIndex < size) {
+				if (arr[childLeftIndex] > arr[parentIndex]) {
+					childIndex = childLeftIndex;
+					isChildSelected = true;
+				}
+				
+				if (childRightIndex < size) {
+					if (arr[childRightIndex] > arr[parentIndex]) {
+						if (arr[childLeftIndex] < arr[childRightIndex]) {
+							childIndex = childRightIndex;
+							isChildSelected = true;
+						} 
+					}				
+				}
+			}
+			
+			if (isChildSelected) {
+				// swap
+				int temp = arr[childIndex];
+				arr[childIndex] = arr[parentIndex];
+				arr[parentIndex] = temp;
+				
+				parentIndex = childIndex;
+			} else {
+				break;
+			}
 		}
-		//System.out.println(Arrays.toString(arr));
+		
+		System.out.println("heapify size("+size+"):"+Arrays.toString(arr));
 	}
 	
 	private static void initHeap(int[] arr) {
@@ -60,14 +74,12 @@ public class HeapSort {
 			int child = i;
 			int parent = getParent(child);
 			
-			while (parent != child) {
-				if (arr[i] > arr[parent]) {
-					// swap
-					temp = arr[i];
-					arr[i] = arr[parent];
-					arr[parent] = temp;
-				}
-				
+			while (arr[child]>arr[parent]&&parent != child) {
+			// swap
+				temp = arr[child];
+				arr[child] = arr[parent];
+				arr[parent] = temp;
+	
 				child = parent;
 				parent = getParent(child);
 			}
@@ -95,24 +107,5 @@ public class HeapSort {
 		parent = parent / 2;
 		
 		return parent;
-	}
-	
-	private static int getChild(int currentIndex,boolean left) {
-		int childLeft;
-		int childRight;
-		
-		if(currentIndex>=5) { 
-			
-			return currentIndex;
-		}
-		
-		childLeft = (currentIndex*2)+1;
-		childRight = (currentIndex*2)+2;
-		
-		if(left) {
-			return childLeft;
-		}else {
-			return childRight;
-		}
 	}
 }
