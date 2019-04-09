@@ -1,4 +1,4 @@
-package hyunhee_project;
+package hyunhee_project.sort;
 
 import java.util.Arrays;
 import java.util.Random;
