@@ -8,6 +8,7 @@ public class BubbleSort {
 		System.out.println(Arrays.toString(bubbleSort(intArr)));
 	}
 	
+	
 	public static int[] bubbleSort(int[] intArr) {
 		final int SORT_LENGTH = intArr.length;
 		int[] bubbleSort = intArr;
@@ -19,7 +20,8 @@ public class BubbleSort {
 				if(bubbleSort[j-1]>=bubbleSort[j]) {
 					int temp = bubbleSort[j-1];
 					bubbleSort[j-1] = bubbleSort[j];
-					bubbleSort[j] = temp;
+					bubbleSort[j] = temp; 
+					
 					isChecked=false;
 				}
 			}
