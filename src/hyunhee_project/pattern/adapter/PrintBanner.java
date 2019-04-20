@@ -13,7 +13,7 @@ public class PrintBanner extends Banner implements Print{
 	}
 
 	@Override
-	public void pringStrong() {
+	public void printStrong() {
 		ShowWithAster();
 		
 	}

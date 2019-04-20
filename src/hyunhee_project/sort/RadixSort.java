@@ -2,7 +2,7 @@ package hyunhee_project.sort;
 
 import java.util.Arrays;
 
-import hyunhee_project.Queue;
+import hyunhee_project.structure.Queue;
 
 public class RadixSort {
 	public static void main(String[] args) {

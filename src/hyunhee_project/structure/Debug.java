@@ -1,4 +1,4 @@
-package hyunhee_project;
+package hyunhee_project.structure;
 
 import java.math.BigDecimal;
 import java.util.HashMap;

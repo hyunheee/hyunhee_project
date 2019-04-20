@@ -9,7 +9,7 @@ package hyunhee_project.pattern.adapter;
 public class MainAdapter {
 	public static void main(String[] args) {
 		Print p = new PrintBanner("hello");
-		p.pringStrong();
+		p.printStrong();
 		p.printWeak();
 	}
 }
