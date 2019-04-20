@@ -1,12 +1,7 @@
-package hyunhee_project;
+package hyunhee_project.sort;
 
 import java.util.Arrays;
 import java.util.Random;
-
-import hyunhee_project.sort.BubbleSort;
-import hyunhee_project.sort.InsertionSort;
-import hyunhee_project.sort.MergeSort;
-import hyunhee_project.sort.QuickSort;
 
 public class SortTimeChecking {
 	static BubbleSort bubble = new BubbleSort();
